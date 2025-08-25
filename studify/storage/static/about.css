@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  color: #3a1a55;
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the body takes the full height */
+}
+
+.navbar {
+  background-color: #0f0616;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: #3a1a55;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin: 0 1rem;
+}
+
+.nav-link {
+  color: #ffffff;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #6c757d;
+}
+
+.nav-item .dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+.dropdown-menu {
+  background-color: #3a1a55;
+  color: white;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #29133d;
+  color: white;
+}
+
+.btn-login {
+  background-color: #0f0616;
+  color: white !important;
+  border-radius: 10px;
+  padding: 0.5rem 1.5rem;
+  width: 120px;
+  text-align: center;
+  border: 1px solid white;
+}
+
+.btn-login:hover {
+  background-color: #29133d;
+}
+
+.video-background {
+  position: fixed; /* Make video fixed to viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Cover entire viewport */
+  overflow: hidden;
+  z-index: -1; /* To position the video behind the content */
+}
+
+#hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.about-section {
+  background: white; /* Change background to white */
+  color: #3a1a55;
+  padding: 50px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 50px; /* Adjust margin to avoid overlap with navbar */
+  margin-bottom: 50px; /* Add margin at the bottom */
+}
+
+.about-image img {
+  width: 100%;
+}
+
+.about-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-content h2 {
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #3a1a55;
+  text-decoration: none;
+}
+
+.read-more i {
+  margin-left: 5px;
+}
+
+.read-more:hover {
+  text-decoration: none;
+  color: #3a1a55;
+}
+input {
+  text-align: center;
+  color: #0f0616;
+}
+footer {
+  background-color: #0f0616;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-nav a {
+  color: white;
+  margin: 0 1rem;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}

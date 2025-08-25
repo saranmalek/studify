@@ -1,0 +1,138 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+footer {
+  width: 100%;
+  /* position: fixed; */
+  bottom: 0;
+  z-index: 2;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#bgVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  backdrop-filter: blur(5px);
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  margin-right: 50px;
+}
+
+.image-container img {
+  max-width: 400px;
+  height: 400px;
+}
+
+.form-container {
+  max-width: 300px;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+h2 {
+  text-align: center;
+  margin-right: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  margin-right: 60px;
+  position: relative;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+  caret-color: #6c63ff;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
+  background-color: #e8e8e8;
+}
+
+.input-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3a1a55;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #29133d;
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-container {
+    display: none;
+  }
+
+  .input-group {
+    margin-right: 0;
+  }
+
+  button {
+    width: 100%;
+  }
+}

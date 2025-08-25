@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="sidebar" id="sidebar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+            <button class="tablinks" onclick="openTab(event, 'viewUsers')" id="defaultOpen">View Users</button>
+            <button class="tablinks" onclick="openTab(event, 'editTools')">Edit Tools</button>
+        </div>
+
+        <div class="content">
+            <div id="viewUsers" class="tabcontent">
+                <h2>View Users</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td><button class="remove-btn" onclick="removeUser(this)"><i class="fas fa-trash-alt"></i> Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td><button class="remove-btn" onclick="removeUser(this)"><i class="fas fa-trash-alt"></i> Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mike Johnson</td>
+                            <td>mike@example.com</td>
+                            <td><button class="remove-btn" onclick="removeUser(this)"><i class="fas fa-trash-alt"></i> Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Emily Davis</td>
+                            <td>emily@example.com</td>
+                            <td><button class="remove-btn" onclick="removeUser(this)"><i class="fas fa-trash-alt"></i> Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Robert Brown</td>
+                            <td>robert@example.com</td>
+                            <td><button class="remove-btn" onclick="removeUser(this)"><i class="fas fa-trash-alt"></i> Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="editTools" class="tabcontent">
+                <h2>Edit Tools</h2>
+                <div class="tool-list" id="toolList">
+                    <div class="tool" id="tool-1">
+                        <span class="tool-name" onclick="editTool(this)">Tool 1 - A tool for generating essays.</span>
+                        <button class="edit-btn" onclick="editTool(this.parentNode.querySelector('.tool-name'))"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="remove-btn" onclick="removeTool(this)"><i class="fas fa-trash-alt"></i> Remove</button>
+                    </div>
+                    <div class="tool" id="tool-2">
+                        <span class="tool-name" onclick="editTool(this)">Tool 2 - A tool for solving homework.</span>
+                        <button class="edit-btn" onclick="editTool(this.parentNode.querySelector('.tool-name'))"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="remove-btn" onclick="removeTool(this)"><i class="fas fa-trash-alt"></i> Remove</button>
+                    </div>
+                    <div class="tool" id="tool-3">
+                        <span class="tool-name" onclick="editTool(this)">Tool 3 - A tool for creating quizzes.</span>
+                        <button class="edit-btn" onclick="editTool(this.parentNode.querySelector('.tool-name'))"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="remove-btn" onclick="removeTool(this)"><i class="fas fa-trash-alt"></i> Remove</button>
+                    </div>
+                    <div class="tool" id="tool-4">
+                        <span class="tool-name" onclick="editTool(this)">Tool 4 - A punctuation correction tool.</span>
+                        <button class="edit-btn" onclick="editTool(this.parentNode.querySelector('.tool-name'))"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="remove-btn" onclick="removeTool(this)"><i class="fas fa-trash-alt"></i> Remove</button>
+                    </div>
+                    <div class="tool" id="tool-5">
+                        <span class="tool-name" onclick="editTool(this)">Tool 5 - A general knowledge chatbot.</span>
+                        <button class="edit-btn" onclick="editTool(this.parentNode.querySelector('.tool-name'))"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="remove-btn" onclick="removeTool(this)"><i class="fas fa-trash-alt"></i> Remove</button>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="showAddToolForm()"><i class="fas fa-plus"></i> Add Tool</button>
+                <div class="add-tool-form" id="addToolForm" style="display: none;">
+                    <h3>Add Tool</h3>
+                    <div class="input-group">
+                        <input type="text" placeholder="Tool Name" id="toolName" required>
+                        <textarea placeholder="Tool Description" id="toolDescription" required></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button class="save-btn" id="saveToolBtn" onclick="addTool()">Save</button>
+                        <button class="discard-btn" onclick="toggleAddToolForm()">Discard</button>
+                    </div>
+                </div>
+                <div class="edit-tool-form" id="editToolForm" style="display: none;">
+                    <h3>Edit Tool</h3>
+                    <div class="input-group">
+                        <input type="text" placeholder="Tool Name" id="editToolName" required>
+                        <textarea placeholder="Tool Description" id="editToolDescription" required></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button class="update-btn" id="updateToolBtn" onclick="updateTool()">Update</button>
+                        <button class="discard-btn" onclick="toggleEditToolForm()">Discard</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentEditingTool = null;
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        document.getElementById("defaultOpen").click();
+
+        function toggleAddToolForm() {
+            var form = document.getElementById("addToolForm");
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+
+        function showAddToolForm() {
+            toggleAddToolForm();
+            var saveButton = document.getElementById("saveToolBtn");
+            saveButton.style.display = "block"; // Show the Save button
+            var updateButton = document.getElementById("updateToolBtn");
+            updateButton.style.display = "none"; // Hide the Update button
+        }
+
+        function addTool() {
+            var toolName = document.getElementById("toolName").value;
+            var toolDescription = document.getElementById("toolDescription").value;
+
+            if (toolName && toolDescription) {
+                var toolList = document.getElementById("toolList");
+                var newTool = document.createElement("div");
+                newTool.className = "tool";
+                newTool.innerHTML = `<span class="tool-name" onclick="editTool(this)">${toolName} - ${toolDescription}</span>
+                                     <button class="edit-btn" onclick="editTool(this.parentNode.querySelector('.tool-name'))"><i class="fas fa-edit"></i> Edit</button>
+                                     <button class="remove-btn" onclick="removeTool(this)"><i class="fas fa-trash-alt"></i> Remove</button>`;
+                toolList.appendChild(newTool);
+
+                document.getElementById("toolName").value = "";
+                document.getElementById("toolDescription").value = "";
+                toggleAddToolForm();
+            }
+        }
+
+        function editTool(toolElement) {
+            currentEditingTool = toolElement;
+            var toolDetails = toolElement.innerText.split(" - ");
+            document.getElementById("editToolName").value = toolDetails[0];
+            document.getElementById("editToolDescription").value = toolDetails[1];
+            document.getElementById("editToolForm").style.display = "block";
+            document.getElementById("addToolForm").style.display = "none";
+        }
+
+        function updateTool() {
+            if (currentEditingTool) {
+                var toolName = document.getElementById("editToolName").value;
+                var toolDescription = document.getElementById("editToolDescription").value;
+                currentEditingTool.innerText = toolName + " - " + toolDescription;
+                toggleEditToolForm();
+            }
+        }
+
+        function toggleEditToolForm() {
+            var form = document.getElementById("editToolForm");
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+
+        function removeUser(button) {
+            var row = button.closest("tr");
+            row.parentNode.removeChild(row);
+        }
+
+        function removeTool(button) {
+            var tool = button.closest(".tool");
+            tool.parentNode.removeChild(tool);
+        }
+
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.style.width = sidebar.style.width === "200px" ? "60px" : "200px";
+        }
+    </script>
+</body>
+</html>

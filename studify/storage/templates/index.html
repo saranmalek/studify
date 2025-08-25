@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studify</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="#" style="color: aliceblue">Studify</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="color: aliceblue"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}" style="color: aliceblue">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                style="color: aliceblue"
+              >
+                Features
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'essay' %}">Essay Generation</a>
+                <a class="dropdown-item" href="{% url 'homework' %}">Homework Solving</a>
+                <a class="dropdown-item" href="{% url 'quiz' %}">Quiz Creation</a>
+                <a class="dropdown-item" href="{% url 'punctuation' %}">Punctuation Correction</a>
+                <a class="dropdown-item" href="{% url 'gk' %}">General Knowledge Chatbot</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}" style="color: aliceblue"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}" style="color: aliceblue"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <div class="nav-item">
+            {% comment %} <a
+              class="nav-link btn btn-login"
+              href="{% url 'login' %}"
+              style="color: aliceblue"
+              >Login</a
+            > {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+      class="hero-section d-flex align-items-center justify-content-center"
+    >
+      <div class="hero-content text-center">
+        <h1>Welcome to Studify</h1>
+        <p class="tagline">Your AI-powered academic assistant</p>
+        <a href="#" class="btn btn-outline-primary" id="getStartedBtn">Get Started</a>
+      </div>
+      <video autoplay muted loop id="hero-video">
+        <source
+          src="{% static 'Gradient Loop Background.mp4' %}"
+          type="video/mp4"
+        />
+      </video>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features-section text-center" id="features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 feature">
+            <i class="fas fa-file-alt fa-3x"></i>
+            <h3>Essay Generation</h3>
+            <p>Generate high-quality essays effortlessly.</p>
+            <a href="{% url 'essay' %}" class="btn btn-primary"
+              >Get Started</a
+            >
+          </div>
+          <div class="col-md-4 feature">
+            <i class="fas fa-book fa-3x"></i>
+            <h3>Homework Solving</h3>
+            <p>Solve your homework problems quickly and accurately.</p>
+            <a href="{% url 'homework' %}" class="btn btn-primary"
+              >Get Started</a
+            >
+          </div>
+          <div class="col-md-4 feature">
+            <i class="fas fa-clipboard-list fa-3x"></i>
+            <h3>Quiz Creation</h3>
+            <p>Create engaging quizzes for effective learning.</p>
+            <a href="{% url 'quiz' %}" class="btn btn-primary">Get Started</a>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4 offset-md-2 feature">
+            <i class="fas fa-spell-check fa-3x"></i>
+            <h3>Punctuation Correction</h3>
+            <p>Correct punctuation errors with esay and simple using AI.</p>
+            <a href="{% url 'punctuation' %}" class="btn btn-primary"
+              >Get Started</a
+            >
+          </div>
+          <div class="col-md-4 feature">
+            <i class="fas fa-comments fa-3x"></i>
+            <h3>General Knowledge Chatbot</h3>
+            <p>Get answers to your general knowledge questions.</p>
+            <a href="{% url 'gk' %}" class="btn btn-primary"
+              >Get Started</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+      <div class="container">
+        <p>&copy; 2024 Studify. All rights reserved.</p>
+        <div class="footer-nav">
+          <a href="#" >Home</a>
+          <a href="#features" >Features</a>
+          <a href="{% url 'about' %}">About</a>
+          <a href="{% url 'contact' %}">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document.getElementById("getStartedBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("features").scrollIntoView({ behavior: "smooth" });
+    });
+    </script>
+  </body>
+</html>
